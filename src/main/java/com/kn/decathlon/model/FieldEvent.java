@@ -20,6 +20,11 @@ public class FieldEvent implements Event {
         this.discipline = discipline;
     }
 
+    @Override
+    public double getValue() {
+        return distanceInCm;
+    }
+
     public double getDistanceInCm() {
         return distanceInCm;
     }

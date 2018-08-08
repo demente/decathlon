@@ -20,6 +20,11 @@ public class TrackEvent implements Event {
         this.discipline = discipline;
     }
 
+    @Override
+    public double getValue() {
+        return timeInSeconds;
+    }
+
     public double getTimeInSeconds() {
         return timeInSeconds;
     }
