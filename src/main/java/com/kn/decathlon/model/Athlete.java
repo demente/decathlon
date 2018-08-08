@@ -27,4 +27,8 @@ public class Athlete {
     public void setEvents(List<Event> events) {
         this.events = events;
     }
+
+    public Integer getTotalScore() {
+        return getEvents().stream().mapToInt(Event::getScore).sum();
+    }
 }

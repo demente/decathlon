@@ -1,8 +1,5 @@
-package com.kn.decathlon.service;
+package com.kn.decathlon.model;
 
-import com.kn.decathlon.model.Athlete;
-import com.kn.decathlon.model.FieldEvent;
-import com.kn.decathlon.model.TrackEvent;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.mockito.Mock;
@@ -13,9 +10,8 @@ import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
 
 @RunWith(MockitoJUnitRunner.class)
-public class ScoreCalculatorTest {
+public class AthleteTest {
 
-    private ScoreCalculator scoreCalculator = new ScoreCalculator();
     @Mock
     private FieldEvent fieldEvent;
     @Mock
@@ -28,8 +24,9 @@ public class ScoreCalculatorTest {
 
         Athlete athlete = new Athlete("Test name", asList(fieldEvent, trackEvent));
 
-        Integer totalScore = scoreCalculator.calculateTotalScore(athlete);
+        Integer totalScore = athlete.getTotalScore();
 
         assertThat(totalScore).isEqualTo(50);
     }
+
 }
