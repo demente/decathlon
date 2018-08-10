@@ -2,6 +2,9 @@ package com.kn.decathlon.model;
 
 import java.util.List;
 
+import static com.kn.decathlon.utils.CalculationUtils.getNumberOfAthletesWithTotalScoreEqualTo;
+import static com.kn.decathlon.utils.CalculationUtils.getNumberOfAthletesWithTotalScoreHigherThan;
+
 public class Athlete {
 
     private String name;
@@ -30,5 +33,15 @@ public class Athlete {
 
     public Integer getTotalScore() {
         return getEvents().stream().mapToInt(Event::getScore).sum();
+    }
+
+    public String calculatePlace(List<Athlete> athletes) {
+        Long withBetterResult = getNumberOfAthletesWithTotalScoreHigherThan(getTotalScore(), athletes);
+        Long withSameResult = getNumberOfAthletesWithTotalScoreEqualTo(getTotalScore(), athletes);
+
+        if (withSameResult > 1) {
+            return (withBetterResult + 1) + "-" + (withBetterResult + withSameResult);
+        }
+        return String.valueOf(withBetterResult + 1);
     }
 }
