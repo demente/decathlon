@@ -8,11 +8,17 @@
     <groupId>roadlog</groupId>
     <artifactId>decathlon</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
+    <properties>
+        <maven.compiler.source>1.8</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+    </properties>
+
     <dependencies>
         <dependency>
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
-            <version>4.0</version>
+            <version>4.8</version>
         </dependency>
         <dependency>
             <groupId>org.assertj</groupId>
