@@ -45,8 +45,9 @@ public class CsvFileReader implements InputReader {
     }
 
     private double convertToSeconds(String value) {
-        String[] time = value.split(":");
-        return Integer.valueOf(time[0]) * 60 + Double.valueOf(time[1]);
+        int minuteSeparatorIndex = value.indexOf(".");
+        return Integer.valueOf(value.substring(0, minuteSeparatorIndex)) * 60 +
+               Double.valueOf(value.substring(minuteSeparatorIndex+1));
     }
 
 }
